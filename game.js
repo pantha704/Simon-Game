@@ -3,7 +3,6 @@
 
 buttonColours = ["red", "blue", "green", "yellow"];
 gamePattern = [];
-sounds = ["red.mp3", "blue.mp3", "green.mp3", "yellow.mp3"];
 userClickedPattern = [];
 var level = 0;
 var started = false;
@@ -29,6 +28,7 @@ $(".btn").on("click",function(){
         var randomChosenColour = nextSequence();
         // console.log(randomChosenColour);
         started = true;
+        $("#caption").text("");
     }
 
     var userChosenColour = $(this).attr("id");
@@ -95,4 +95,6 @@ function startOver (){
     gamePattern = [];
     level = 0;
     started = false;
+    $("#caption").text("Uh-Oh, Try again :( \n\nFollow along the pattern.");
+
 }

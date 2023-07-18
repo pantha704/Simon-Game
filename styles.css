@@ -31,6 +31,11 @@ body {
   opacity: 0.8;
 }
 
+#caption {
+  font-family: 'Press Start 2P', cursive;
+  color: #FEF2BF;
+}
+
 .red {
   background-color: red;
 }
