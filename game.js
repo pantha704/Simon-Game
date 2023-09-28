@@ -1,6 +1,3 @@
-// alert("hello");
-// alert($("h1"));
-
 buttonColours = ["red", "blue", "green", "yellow"];
 gamePattern = [];
 userClickedPattern = [];
@@ -9,8 +6,12 @@ var started = false;
 var randomChosenColour = 0 
 
 function nextSequence() {
-   var randomNumber = Math.round(Math.random() * 3);
-   gamePattern.push(buttonColours[randomNumber])
+   if (gamePattern.length === 0){
+    // skip
+   } else {
+    var randomNumber = Math.round(Math.random() * 3);
+    gamePattern.push(buttonColours[randomNumber])
+    }
    console.log(gamePattern);
    level++;
    $("#level-title").text("level "+level);
@@ -32,6 +33,7 @@ $(".btn").on("click",function(){
     }
 
     var userChosenColour = $(this).attr("id");
+
     handler(userChosenColour);
     playSound(userChosenColour);
     animatePress(userChosenColour);
@@ -43,6 +45,9 @@ function handler(userChosenColour) {
         gamePattern[0] = userChosenColour;
     }
     userClickedPattern.push(userChosenColour);
+    if (gamePattern.length === 0) {
+        gamePattern = userClickedPattern;
+    }
     // console.log(userClickedPattern);
     // console.log(gamePattern);
 }
